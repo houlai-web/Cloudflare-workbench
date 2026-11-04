@@ -1,0 +1,77 @@
+{
+  "_readme": "所有相对路径均以程序根目录（config.json / exe 所在目录）为基准。修改后重启程序生效。",
+  "xray_path": "./app/xray/xray.exe",
+  "download_dir": "./downloads",
+  "work_dir": "./app/tmp/work",
+  "export_dir": "./downloads",
+  "temp_dir": "./app/tmp",
+  "log_dir": "./app/logs",
+  "regions": [
+    { "name": "日本", "code": "JP" },
+    { "name": "新加坡", "code": "SG" },
+    { "name": "美国", "code": "US" },
+    { "name": "香港", "code": "HK" },
+    { "name": "台湾", "code": "TW" },
+    { "name": "韩国", "code": "KR" },
+    { "name": "德国", "code": "DE" },
+    { "name": "荷兰", "code": "NL" },
+    { "name": "英国", "code": "GB" },
+    { "name": "加拿大", "code": "CA" }
+  ],
+  "fofa": {
+    "_readme": "仅用于生成 FOFA 查询语句与搜索链接，不含账号 / API Key / Cookie，也不发起 API 采集。",
+    "query_template": "country=\"{code}\" && protocol=\"vless\""
+  },
+  "extract": {
+    "port_allowlist": [],
+    "port_blocklist": [22, 25, 135, 137, 138, 139, 445, 3389],
+    "exclude_private_ip": true,
+    "max_items": 0,
+    "default_port": 443,
+    "preview": 10
+  },
+  "generate": {
+    "sample_vless": "vless://11111111-2222-3333-4444-555555555555@example.com:443?encryption=none&security=tls&sni=example.com&type=ws&host=example.com&path=%2Fws&fp=chrome&alpn=h2%2Chttp%2F1.1#example",
+    "name_template": "{region}-{index:03d}-{latency}",
+    "max_nodes": 50,
+    "latency_placeholder": "待测",
+    "strict_uuid": true
+  },
+  "test": {
+    "concurrency": 50,
+    "latency_concurrency": 50,
+    "speed_concurrency": 5,
+    "kernel_batch": 50,
+    "latency_timeout": 6,
+    "poll_interval": 0.03,
+    "timing": true,
+    "startup_timeout": 8,
+    "latency_url": "https://www.gstatic.com/generate_204",
+    "latency_samples": 2,
+    "latency_sample_mode": "best",
+    "request_timeout": 10,
+    "speed_url": "https://speed.cloudflare.com/__down?bytes=10000000",
+    "speed_max_bytes": 8000000,
+    "speed_max_seconds": 15,
+    "speed_timeout": 20,
+    "retries": 0,
+    "test_inbound": "http",
+    "test_mode": "latency_speed",
+    "port_start": 20000,
+    "port_end": 40000,
+    "keep_temp_on_error": false
+  },
+  "publish": {
+    "_readme": "把内容上传到 CF 文本主机（同 上传测速结果到CF.bat）。domain/token/filename_default 可在页面修改，上传成功后写回本段。",
+    "enabled": true,
+    "domain": "txt.example.com",
+    "token": "",
+    "content_mode": "ip_port_country",
+    "max_lines": 0,
+    "filename_default": "{date}.txt",
+    "timeout": 15
+  },
+  "output": {
+    "csv_encoding": "utf-8-sig"
+  }
+}

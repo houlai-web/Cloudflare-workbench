@@ -1,0 +1,16 @@
+{
+  "source": "selftest_sample",
+  "query": "country=\"JP\" && protocol=\"vless\"",
+  "fields": ["host", "ip", "port", "country", "lastupdatetime"],
+  "reported_total": 8,
+  "results": [
+    { "host": "45.76.100.40:443", "ip": "45.76.100.40", "port": "443", "country": "JP" },
+    { "host": "104.21.1.60:8443", "ip": "104.21.1.60", "port": "8443", "country": "JP" },
+    { "host": "8.8.8.8:2053", "ip": "8.8.8.8", "port": "2053", "country": "JP" },
+    { "host": "1.1.1.1:2096", "ip": "1.1.1.1", "port": "2096", "country": "JP" },
+    { "host": "45.32.100.50:8080", "ip": "45.32.100.50", "port": "8080", "country": "JP" },
+    { "host": "proxy.example.com:443", "ip": "45.76.100.70", "port": "443", "country": "JP" },
+    { "host": "127.0.0.1:443", "ip": "127.0.0.1", "port": "443", "country": "JP" },
+    { "host": "example.org:99999", "ip": "example.org", "port": "99999", "country": "JP" }
+  ]
+}
